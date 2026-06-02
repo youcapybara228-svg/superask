@@ -1,0 +1,16 @@
+[Unit]
+Description=Super ASK — Telegram Bot + opencode Integration
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/home/%i/Desktop/superask
+ExecStart=/usr/bin/python3 -m src.main
+Restart=on-failure
+RestartSec=10
+EnvironmentFile=-/home/%i/Desktop/superask/.env
+
+[Install]
+WantedBy=multi-user.target
